@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/gif" href="img/suza2.png">
+    <title>voip</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin-top: 20px;
+            background-image: url('img/vp.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            color: #fff !important;
+        }
+        .navbar-brand .fa {
+            font-size: 30px;
+        }
+        .navbar-inverse {
+            background-color: #333;
+            border-color: #333;
+        }
+        .navbar-nav > li > a {
+            color: #fff !important;
+        }
+        .page-header {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: white; /* Text color updated to white */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional text shadow */
+        }
+        .page-header small {
+            font-size: 18px;
+            color: white; /* Text color updated to white */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional text shadow */
+        }
+        .content {
+            margin-top: 40px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .content img {
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .well {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .well h3 {
+            color: #333;
+        }
+        .well ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .well ul li {
+            margin-bottom: 10px;
+        }
+        .text-center {
+            margin-bottom: 30px;
+        }
+        .text-center p.lead {
+            color: white; /* Text color updated to white */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional text shadow */
+        }
+        .text-muted {
+            color: #777;
+        }
+        .modal-content {
+            border-radius: 8px;
+        }
+        .modal-header {
+            border-bottom: none;
+        }
+        .modal-title {
+            font-size: 20px;
+        }
+        .modal-body {
+            padding: 20px;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+        .btn-primary {
+            background-color: #5bc0de;
+            border-color: #46b8da;
+        }
+        .btn-default {
+            background-color: #fff;
+            border-color: #ddd;
+        }
+        .form-control {
+            border-radius: 4px;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+<div class="container">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="fa fa-fw fa-phone-square"></i>voip</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/freshman13/voip_softphone_suza"><i class="fa fa-github"></i> GitHub Project</a></li>
+                    <li><a href="https://www.suza.ac.tz"><i class="fa fa-asterisk text-success"></i> SUZA</a></li>
+                    <li><a href="/phone/login.html"><i class="fa fa-sign-in"></i> Login</a></li>
+                    <li><a class="nav-link" href="dev.html"><i class="fa fa-user"></i> Developer Page</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <h1 class="page-header text-center"><i class="fa fa-fw fa-phone-square text-success fa-2x"></i><br> SUZA VOIP APP <small><br>Welcome & Enjoy the Seamless Web Softphone App <s></s>.</small></h1>
+
+    <div class="text-center">
+        <p class="lead">Already have a SIP account? Register.</p>
+        <a href="#mdlDemo" class="btn btn-lg btn-primary" id="btnDemo" data-toggle="modal"><i class="fa fa-fw fa-phone-square"></i>Phone Registration</a>
+    </div>
+</div>
+
+<div class="container content">
+    <div class="row">
+        <!-- Simple UI Section -->
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h2 class="feature-title">Simple UI</h2>
+                <img src="img/screenshots/1.png" class="img-responsive feature-img" width="160" height="240" alt="Simple UI">
+                <p class="feature-text">SUZA Seamless VoIP App is a JavaScript-based SIP client that uses WebRTC and WebSockets to connect to your SIP server.</p>
+                <p class="feature-text">The UI is designed to be launched as a popup from within your application.</p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h2 class="feature-title">Features</h2>
+                <img src="img/screenshots/2.png" class="img-responsive feature-img" width="160" height="240" alt="Strong Featureset">
+                <ul class="feature-list">
+                    <li>Hold / Resume, Mute, multiple call support.</li>
+                    <li>No plugins required.</li>
+                    <li>Intuitive interface makes it easy for users.</li>
+                    <li>Designed for a business environment, features are limited to what is needed.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Easy to Implement Section -->
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h2 class="feature-title">Easy to Implement</h2>
+                <img src="img/screenshots/3.png" class="img-responsive feature-img" width="160" height="240" alt="Easy to Implement">
+                <ul class="feature-list">
+                    <li>Call logs are saved to localStorage</li>
+                    <li>Easy to configure and integrate into your project.</li>
+                    <li>Uses SIP.js, Bootstrap, jQuery, and other common tools of the trade.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add your CSS to style the sections -->
+<style>
+    .feature-box {
+        background-color: #f8f9fa; /* Light background for the feature box */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .feature-title {
+        color: #007bff; /* Blue color for the titles */
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .feature-img {
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    .feature-text {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .feature-list {
+        list-style-type: none;
+        padding: 0;
+        color: #555;
+    }
+    .feature-list li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .feature-list li::before {
+        content: "\f058"; /* Font Awesome checkmark */
+        font-family: FontAwesome;
+        color: #007bff; /* Color for checkmark */
+        margin-right: 10px;
+    }
+</style>
+
+        <div class="container">
+            <!-- Footer Section -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Social Media Links -->
+                        <div class="col-md-6">
+                            <h3>Connect with Us</h3>
+                            <div class="social-media">
+                                <a href="https://facebook.com" class="btn btn-social btn-facebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com" class="btn btn-social btn-twitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://linkedin.com" class="btn btn-social btn-linkedin" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://github.com" class="btn btn-social btn-github" title="GitHub"><i class="fa fa-github"></i></a>
+                            </div>
+                        </div>
+        
+                        <!-- Contact Details -->
+                        <div class="col-md-6">
+                            <h3>Contact Us</h3>
+                            <ul class="contact-details">
+                                <li><i class="fa fa-envelope"></i> Email: <a href="mailto:support@suza.ac.tz">support@suza.ac.tz</a></li>
+                                <li><i class="fa fa-phone"></i> Phone: +255 123 456 789</li>
+                                <li><i class="fa fa-map-marker"></i> Address: SUZA, Zanzibar, Tanzania</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        
+            <!-- Footer Bottom -->
+            <div class="footer-bottom text-center">
+                <p>&copy; 2024 SUZA App. All rights reserved.</p>
+            </div>
+        </div>
+        
+        <!-- Add your CSS to ;
+                margin-bottom: 20px;
+            }
+            .social-media {
+                margin-top: 10px;
+            }
+            .btn-social {
+                margin-right:style the footer -->
+        <style>
+            .footer {
+                background-color: #333;
+                color: #fff;
+                padding: 40px 0;
+            }
+            .footer h3 {
+                color: #fff 10px;
+                color: #fff;
+                background-color: #333;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+                text-align: center;
+                font-size: 18px;
+            }
+            .btn-facebook { background-color: #3b5998; }
+            .btn-twitter { background-color: #55acee; }
+            .btn-linkedin { background-color: #0077b5; }
+            .btn-github { background-color: #333; }
+            .contact-details {
+                list-style: none;
+                padding: 0;
+            }
+            .contact-details li {
+                margin-bottom: 10px;
+            }
+            .contact-details i {
+                margin-right: 10px;
+            }
+            .footer-bottom {
+                background-color: #222;
+                color: #fff;
+                padding: 10px 0;
+            }
+        </style>
+           
+               
+    <div class="text-center text-muted">
+        <p>&copy;<b>2024 suza app. All right reserved</b> </p>
+    </div>
+</div>
+
+<form id="mdlDemo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnDemo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Enter SIP Credentials</h4>
+            </div>
+            <div class="modal-body">
+                <p>All fields SIP credentials  are required to filled.</p>
+                <div class="form-group">
+                    <label>Display Name:</label>
+                    <input type="text" name="Display" class="form-control" placeholder="i.e. Ben Franklin" required>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>SIP User:</label>
+                            <input type="text" name="User" class="form-control" placeholder="i.e. sipuser" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>WS URL:</label>
+                            <input type="text" name="WSServer" class="form-control" placeholder="i.e. wss://sip.example.com:5060/" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>SIP Password:</label>
+                            <input type="password" name="Pass" class="form-control" placeholder="i.e. supaSekret!" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Domain:</label>
+                            <input type="text" name="Realm" class="form-control" placeholder="i.e. sip.example.com" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnConfig">Launch Phone</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#mdlDemo').on('show.bs.modal', function() {
+            var user = JSON.parse(localStorage.getItem('SIPCreds'));
+            if (user) {
+                $.each(user, function(k, v) {
+                    $('input[name="'+k+'"]').val(v);
+                });
+            }
+        });
+
+        $('#btnConfig').click(function(event) {
+            var user  = {},
+                valid = true;
+            event.preventDefault();
+            $('#mdlDemo input').each(function(i) {
+                if ($(this).val() === '') {
+                    $(this).closest('.form-group').addClass('has-error');
+                    valid = false;
+                } else {
+                    $(this).closest('.form-group').removeClass('has-error');
+                }
+                user[$(this).attr('name')] = $(this).val();
+            });
+            if (valid) {
+                localStorage.setItem('SIPCreds', JSON.stringify(user));
+                var url = 'https://' + window.location.host + window.location.pathname + 'phone/',
+                    features = 'menubar=no,location=no,resizable=no,scrollbars=no,status=no,addressbar=no,width=320,height=480';
+                if (!localStorage.getItem('ctxPhone')) {
+                    window.open(url, 'SUZA Seamless VoIP App', features);
+                    $('#mdlDemo').modal('hide');
+                } else {
+                    window.alert('Phone already open.');
+                }
+            }
+        });
+    });
+
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+        a=s.createElement(o),m=s.getElementsByTagName(o)[0];
+        a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-47777318-2', 'auto');
+    ga('send', 'pageview');
+</script>
+
+</body>
+</html>
